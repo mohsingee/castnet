@@ -1,0 +1,203 @@
+.section_dashboard .dashboard_side {
+    background: var(--primary);
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    flex-direction: column;
+    gap: 1rem;
+    padding: 1.2rem;
+}
+
+.section_dashboard .dashboard_side .profile-box {
+    text-align: center;
+}
+
+.section_dashboard .dashboard_side .profile-img {
+    height: auto;
+    max-width: 8rem;
+}
+
+.section_dashboard .dashboard_side .profile-text {
+    font-size: 1.6rem;
+    color: var(--white);
+    margin-top: 1rem;
+}
+
+.section_dashboard .dashboard_side .dashboard-links .icons {
+    height: auto;
+    max-width: 1.2rem;
+}
+
+.section_dashboard .dashboard_side .dashboard-link {
+    color: var(--white);
+    text-transform: capitalize;
+    font-size: 1.3rem;
+}
+
+.section_dashboard .dashboard_content .section_content {
+    padding: 1.5rem 0;
+}
+
+.section_dashboard .section_content .section_title {
+    text-align: center;
+    color: var(--primary);
+    font-weight: 700;
+    font-size: 2.4rem;
+}
+
+.section_dashboard .section_content .input-box {
+    border-bottom: 0.1rem solid var(--primary);
+    padding: 1rem 0;
+}
+
+.section_dashboard .section_content .input-box:last-of-type {
+    border-bottom: none;
+    padding-bottom: 0;
+}
+
+.section_dashboard .section_content .input-box label {
+    color: var(--primary);
+    font-weight: 700;
+    font-size: 1.6rem;
+}
+
+.section_dashboard .section_content .input-box .form-control {
+    border: none;
+    font-size: 1.4rem;
+    color: var(--dark-charcoal);
+}
+
+.section_dashboard .section_content .input-box .form-control:focus {
+    box-shadow: none;
+}
+
+.section_dashboard .section_content .input-box .form-control::placeholder {
+    color: var(--dark-charcoal);
+}
+
+.section_dashboard .section_content .input-box .input-group-text {
+    background: none;
+    border: none;
+}
+
+@media screen and (min-width:992px) {
+    .section_dashboard .section_content .input-box label {
+        width: 100%;
+        max-width: 14.5rem;
+    }
+
+    .section_dashboard .section_content .section_title {
+        font-size: 3.4rem;
+    }
+
+    .section_dashboard .dashboard_side .profile-text {
+        font-size: 2.4rem;
+    }
+
+    .section_dashboard .dashboard_side .profile-img {
+        height: auto;
+        max-width: 14rem;
+    }
+
+    .section_dashboard .dashboard_side {
+        max-width: 250px;
+        height: 100vh;
+        justify-content: unset;
+        padding: 4rem 0;
+    }
+
+    .w-lg-100 {
+        width: 100%;
+    }
+
+    .section_dashboard .dashboard_side .dashboard-links {
+        background: transparent;
+        padding: 1.5rem;
+        border-bottom: 0.1rem solid var(--white);
+        width: 100%;
+    }
+
+    .section_dashboard .dashboard_side .dashboard-link {
+        width: 100%;
+        font-size: 1.6rem;
+        font-weight: 500;
+        transition: all 0.2s ease-in-out;
+    }
+
+    .section_dashboard .dashboard_side .dashboard-link:hover {
+        background: var(--white);
+    }
+
+    .section_dashboard .dashboard_side .dashboard-link.active {
+        background: var(--white);
+    }
+
+    .section_dashboard .dashboard_side .dashboard-link:hover span {
+        color: var(--primary);
+    }
+
+    .section_dashboard .dashboard_side .dashboard-link.active span {
+        color: var(--primary);
+    }
+
+    .section_dashboard .dashboard_side .dashboard-link:hover .icons {
+        filter: brightness(0) invert(8%) sepia(15%) saturate(5867%) hue-rotate(190deg) brightness(97%) contrast(98%);
+    }
+
+    .section_dashboard .dashboard_side .dashboard-link.active .icons {
+        filter: brightness(0) invert(8%) sepia(15%) saturate(5867%) hue-rotate(190deg) brightness(97%) contrast(98%);
+    }
+
+    .section_dashboard .section_content .input-box {
+        display: flex;
+        align-items: center;
+        padding: 1.5rem 0;
+    }
+}
+
+form.is-readonly .btn-save {
+    display: none;
+}
+
+form.is-readonly input[disabled],
+form.is-readonly textarea[disabled] {
+    cursor: text;
+    background-color: #fff;
+    border-color: #f7f7f7;
+    outline-color: transparent;
+    box-shadow: none;
+    padding: 1.5rem 1rem;
+}
+
+form.is-editing .btn-edit {
+    display: none;
+}
+
+form .form-group input.form-control {
+    font-size: 16px !important;
+    color: #919191;
+    font-weight: normal;
+}
+
+form .form-group label {
+    font-size: 16px;
+    font-weight: 700;
+    color: #071B34;
+    margin-bottom: 10px;
+}
+
+.is-readonly .form-edit-btns .btn-default.btn-edit {
+    background: #071B34;
+    color: white;
+}
+.section_dashboard .dashboard_side {
+    max-width: 250px;
+    height: auto;
+    justify-content: unset;
+    padding: 4rem 0;
+}
+
+.btn-primary {
+    background: #175D72 !important;
+    color: #fff;
+}

@@ -1,0 +1,37 @@
+<?php
+
+use Illuminate\Database\Migrations\Migration;
+use Illuminate\Database\Schema\Blueprint;
+use Illuminate\Support\Facades\Schema;
+
+return new class extends Migration
+{
+    /**
+     * Run the migrations.
+     *
+     * @return void
+     */
+    public function up()
+    {
+        Schema::create('benefits_detail_models', function (Blueprint $table) {
+            $table->id();
+            $table->unsignedBigInteger('benefit_id');
+            $table->foreign('benefit_id')->references('id')->on('benefits_models')->onDelete('cascade');
+            $table->string('title')->nullable();
+            $table->text('image')->nullable();
+            $table->longText('description')->nullable();
+            $table->integer('type')->nullable();
+            $table->timestamps();
+        });
+    }
+
+    /**
+     * Reverse the migrations.
+     *
+     * @return void
+     */
+    public function down()
+    {
+        Schema::dropIfExists('benefits_detail_models');
+    }
+};
