@@ -126,9 +126,6 @@
 <script>
     $('#partnersponsor').validate({
         rules: {
-            title: {
-                required: true,
-            },
             image: {
                 required: true,
             },
