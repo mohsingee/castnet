@@ -1,6 +1,13 @@
 @extends('web.layouts.default')
 @section('content')
-
+<style>
+    .imgclass{
+        align-items: center;
+        display: flex;
+        justify-content: center;
+        flex-direction: column;
+    }
+</style>
     <!-- Breadcrumb Start -->
     <section class="section_breadcrumb partners_sponsors_bg" style="
     background: linear-gradient(90deg, rgba(7, 27, 52, 0.80) 0%, rgba(7, 27, 52, 0.61) 51.46%, rgba(7, 27, 52, 0.42) 99.24%, rgba(7, 27, 52, 0.28) 99.7%, rgba(7, 27, 52, 0.00) 100%), url({{ asset('assets/web/images/' . $banner->image) }}) center no-repeat;
@@ -34,10 +41,10 @@
                     <div class="swiper sponsorSwiper">
                         <div class="swiper-wrapper">
                             @foreach($section1 as $item)
-                            <div class="swiper-slide">
+                            <div class="swiper-slide" style="width: 369.5px; margin-right: 30px;">
                                 <div class="img-box">
-                                    <a href="{{$item->url}}">
-                                        <img src="{{ asset('assets/web/images/'.$item->image) }}" class="img-fluid">
+                                    <a href="{{$item->url}}" class="imgclass">
+                                        <img src="{{ asset('assets/web/images/'.$item->image) }}" class="img-fluid" style="height: 120px;"> 
                                         <h3 class="text-center">{{$item->title}}</h3>
                                     </a>
                                 </div>
@@ -64,8 +71,8 @@
                 <div class="col-md-3 col-lg-3">
                     <div class="card" data-aos="fade-right" data-aos-duration="1000">
                         <div class="card-body">
-                            <a href="{{$item->url}}">
-                                <img src="{{ asset('assets/web/images/'.$item->image) }}" class="img-sponsor">
+                            <a href="{{$item->url}}" class="imgclass">
+                                <img src="{{ asset('assets/web/images/'.$item->image) }}" class="img-sponsor" style="height: 120px;">
                                 <h3 class="text-center">{{$item->title}}</h3>
                             </a>
                         </div>

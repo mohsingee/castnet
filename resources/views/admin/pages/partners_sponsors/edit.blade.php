@@ -63,9 +63,6 @@
 <script>
     $('#partnersponsor').validate({
         rules: {
-            title: {
-                required: true,
-            },
             url: {
                 required: true,
             },
