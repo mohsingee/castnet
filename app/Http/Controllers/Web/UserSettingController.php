@@ -42,7 +42,7 @@ class UserSettingController extends Controller
     public function member(Request $request){
         $setting = Auth::user();
         $member = CompanyInformation::where('user_id', $setting->id)->first();
-        $financialForms = FinancialForm::where('user_id', $setting->id)->first();
+        $financialForms = FinancialForm::where('user_id', $setting->id);
         $banner = Banner::first();   
         return view('web.pages.users.member',get_defined_vars());
     }
@@ -77,5 +77,6 @@ class UserSettingController extends Controller
  
         return view('web.pages.users.financialDetail',get_defined_vars());
     }
+
 
 }

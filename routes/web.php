@@ -118,6 +118,9 @@ Route::middleware('admin-not-access')->group(function() {
     Route::get('/financial-forms', [UserSettingController::class,'financialForms'])->name('web.user-financialForms');
     Route::get('/financial-detail/{id}', [UserSettingController::class, 'financialDetail'])->name('web.user-financialDetail');
 
+
+
+    
     Route::get('/user-sponsor', [UserSettingController::class,'sponsor'])->name('web.user-sponsor');
 });
 include __DIR__.'/admin.php';

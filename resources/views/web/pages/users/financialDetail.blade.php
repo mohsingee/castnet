@@ -121,7 +121,7 @@
                                                             </div>
                                                             <hr>
                                                               <div class="row">
-                                                                <div class="col-sm-4"><h3>Fund Purpose:</h3></div>
+                                                                <div class="col-sm-4"><h3>Purpose Of Funding:</h3></div>
                                                                 <div class="col-sm-8">{{ $financialForm->fund_purpose }}</div>
                                                             </div>
                                                             <hr>
@@ -155,6 +155,93 @@
                                                             <div class="row">
                                                               <div class="col-sm-4"><h3>Recent Year Income:</h3></div>
                                                               <div class="col-sm-8">{{ $financialForm->recent_year_income }}</div>
+                                                          </div>
+                                                          <hr>
+                                                            <div class="row">
+                                                              <div class="col-sm-4"><h3>File:</h3></div>
+                                                              <div class="col-sm-8">
+                                                                {{--******** File Download Working Start ********--}}
+                               @if($financialForm->file)
+                               @php $ext = substr($financialForm->file, strrpos($financialForm->file, '.')+1); @endphp
+                               @if(strtolower($ext)=='pdf')
+                               <div class="row">
+                                   <div class="col-4">
+                                       <a download href="{{ asset('assets/web/images/'.$financialForm->file) }}" target="_blank">
+                                           <img class="selected_img" src="{{ asset('assets/web/images/pdf.png') }}" height="50px" width="50px">
+                                       </a>
+                                   </div>
+                               </div>
+                               @elseif(strtolower($ext)=='doc')
+                               <div class="row">
+                                   <div class="col-4">
+                                       <a download href="{{ asset('assets/web/images/'.$financialForm->file) }}" target="_blank">
+                                           <img class="selected_img" src="{{ asset('assets/web/images/doc.png') }}" height="50px" width="50px">
+                                       </a>
+                                   </div>
+                               </div>
+                               @elseif(strtolower($ext)=='docx')
+                               <div class="row">
+                                   <div class="col-4">
+                                       <a download href="{{ asset('assets/web/images/'.$financialForm->file) }}" target="_blank">
+                                           <img class="selected_img" src="{{ asset('assets/web/images/docx.png') }}" height="50px" width="50px">
+                                       </a>
+                                   </div>
+                               </div>
+                               @elseif(strtolower($ext)=='txt')
+                               <div class="row">
+                                   <div class="col-4">
+                                       <a download href="{{ asset('assets/web/images/'.$financialForm->file) }}" target="_blank">
+                                           <img class="selected_img" src="{{ asset('assets/web/images/txt.png') }}" height="50px" width="50px">
+                                       </a>
+                                   </div>
+                               </div>
+                               @elseif(strtolower($ext)=='rtf')
+                               <div class="row">
+                                   <div class="col-4">
+                                       <a download href="{{ asset('assets/web/images/'.$financialForm->file) }}" target="_blank">
+                                           <img class="selected_img" src="{{ asset('assets/web/images/rtf.png') }}" height="50px" width="50px">
+                                       </a>
+                                   </div>
+                               </div>
+                               @elseif(strtolower($ext)=='html')
+                               <div class="row">
+                                   <div class="col-4">
+                                       <a download href="{{ asset('assets/web/images/'.$ifinancialDatatem->file) }}" target="_blank">
+                                           <img class="selected_img" src="{{ asset('assets/web/images/html.png') }}" height="50px" width="50px">
+                                       </a>
+                                   </div>
+                               </div>
+                               @elseif(strtolower($ext)=='odt')
+                               <div class="row">
+                                   <div class="col-4">
+                                       <a download href="{{ asset('assets/web/images/'.$financialForm->file) }}" target="_blank">
+                                           <img class="selected_img" src="{{ asset('assets/web/images/odt.png') }}" height="50px" width="50px">
+                                       </a>
+                                   </div>
+                               </div>
+                               @elseif(strtolower($ext)=='tex')
+                               <div class="row">
+                                   <div class="col-4">
+                                       <a download href="{{ asset('assets/web/images/'.$financialForm->file) }}" target="_blank">
+                                           <img class="selected_img" src="{{ asset('assets/web/images/tex.png') }}" height="50px" width="50px">
+                                       </a>
+                                   </div>
+                               </div>
+                               @else
+                               <div class="row">
+                                   <div class="col-4">
+                                       <a download href="{{ asset('assets/web/images/'.$financialForm->file) }}" target="_blank">
+                                           <img class="selected_img" src="{{ asset('assets/web/images/'.$financialForm->file) }}" height="50px" width="50px">
+                                       </a>
+                                   </div>
+                               </div>
+                               @endif
+                           @else
+                               <p class="text-danger">{{ "No file selected" }}</p>
+                           @endif
+                      
+                       {{--******** End File Download Working ********--}}
+                                                              </div>
                                                           </div>
                                                          
                                                            

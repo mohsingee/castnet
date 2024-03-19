@@ -85,7 +85,7 @@
                                         </div>
                                     </div>
                                     <div class="row">
-                                    <table class="table table-bordered table-striped"">
+                                    <table class="table table-bordered table-striped" style="max-width: 99%;">
                                         <thead>
                                           <tr>
                                             <th>id</th>
