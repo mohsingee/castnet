@@ -360,31 +360,34 @@ $(function() {
     });
 
    $("body").on("submit", "#event_request", function (e) {
-        var $form = $(this);
-        var $inputs = $form.find('.required');
-        var $errorMessage = $form.find('div.error');
-        $errorMessage.addClass('hide');
+        var selectedValue = $("input[name='event_cost']:checked").val();
+        if(selectedValue=="fee"){
+            var $form = $(this);
+            var $inputs = $form.find('.required');
+            var $errorMessage = $form.find('div.error');
+            $errorMessage.addClass('hide');
 
-        $('.has-error').removeClass('has-error');
+            $('.has-error').removeClass('has-error');
 
-        $inputs.each(function(i, el) {
-            var $input = $(el);
-            if ($input.val() === '') {
-                $input.parent().addClass('has-error');
-                $errorMessage.removeClass('hide');
+            $inputs.each(function(i, el) {
+                var $input = $(el);
+                if ($input.val() === '') {
+                    $input.parent().addClass('has-error');
+                    $errorMessage.removeClass('hide');
+                    e.preventDefault();
+                }
+            });
+
+            if (!$form.data('cc-on-file')) {
                 e.preventDefault();
+                Stripe.setPublishableKey($form.data('stripe-publishable-key'));
+                Stripe.createToken({
+                    number: $('.card-number').val(),
+                    cvc: $('.card-cvc').val(),
+                    exp_month: $('.card-expiry-month').val(),
+                    exp_year: $('.card-expiry-year').val()
+                }, stripeResponseHandler);
             }
-        });
-
-        if (!$form.data('cc-on-file')) {
-            e.preventDefault();
-            Stripe.setPublishableKey($form.data('stripe-publishable-key'));
-            Stripe.createToken({
-                number: $('.card-number').val(),
-                cvc: $('.card-cvc').val(),
-                exp_month: $('.card-expiry-month').val(),
-                exp_year: $('.card-expiry-year').val()
-            }, stripeResponseHandler);
         }
     });
 

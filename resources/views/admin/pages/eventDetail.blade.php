@@ -19,7 +19,7 @@
                         <div class="card-body">
                           <div class="row">
                             <div class="col-sm-2"><h6>Event Title:</h6></div>
-                            <div class="col-sm-10">{{ $eventInfo->event_title }}</div>
+                            <div class="col-sm-10">{{ $eventInfo->title }}</div>
                         </div>
                         <hr>
                           <div class="row">
