@@ -21,10 +21,10 @@
                             <thead>
                             <tr>
                               <th>#</th>
-                              <th>Name</th>
-                              <th>Email</th>
-                              <th>Phone</th>
-                              <th>Event</th>
+                              <th>Title</th>
+                              <th>Event Category</th>
+                              <th>Event Cost</th>
+                              <th>Event Location</th>
                               <th>View</th>
                             </tr>
                             </thead>
@@ -33,15 +33,15 @@
                                <tr>
                                 <td>{{ $index + 1 }}</td>
                                     <td>
-                                        {{ $item->event_contact_FN . ' ' . $item->event_contact_LN }}
+                                        {{ $item->title }}
                                     </td>
                                     <td>
-                                        {{ $item->event_contact_email }}
+                                        {{ $item->event_category }}
                                     </td>
                                     <td>
-                                        {{ $item->telephone }}
+                                        {{ $item->event_cost }}
                                     </td>
-                                    <td>{{ $item->event_title }}</td>
+                                    <td>{{ $item->event_location }}</td>
                                     <td>
                                         <a class="btn btn-sm btn-outline-info" href="{{ route('eventRequest.detail',$item->id) }}"><i class="fa fa-eye"></i></a>
                                         <button class="btn btn-sm btn-outline-danger delete_btn" data-url="/admin/eventRequest-delete"
