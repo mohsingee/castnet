@@ -10,6 +10,7 @@ use Illuminate\Http\Request;
 use App\Models\SponsorUser;
 use App\Models\PartnerUser;
 use App\Models\Banner;
+use App\Models\EventRequestForm;
 use App\Models\FinancialForm;
 use App\Models\User;
 class UserSettingController extends Controller
@@ -43,6 +44,7 @@ class UserSettingController extends Controller
         $setting = Auth::user();
         $member = CompanyInformation::where('user_id', $setting->id)->first();
         $financialForms = FinancialForm::where('user_id', $setting->id);
+        $eventRequestForms = EventRequestForm::where('user_id', $setting->id);
         $banner = Banner::first();   
         return view('web.pages.users.member',get_defined_vars());
     }
@@ -50,7 +52,8 @@ class UserSettingController extends Controller
     public function partner(Request $request){
         $setting = Auth::user();
         $partner = PartnerUser::where('user_id', $setting->id)->first();
-        $financialForms = FinancialForm::where('user_id', $setting->id)->first();
+        $financialForms = FinancialForm::where('user_id', $setting->id);
+        $eventRequestForms = EventRequestForm::where('user_id', $setting->id);
         $banner = Banner::first();   
         return view('web.pages.users.partner',get_defined_vars());
     }
@@ -59,12 +62,14 @@ class UserSettingController extends Controller
         $setting = Auth::user();
         $sponsor = SponsorUser::where('user_id', $setting->id)->first();
         $financialForms = FinancialForm::where('user_id', $setting->id);
+        $eventRequestForms = EventRequestForm::where('user_id', $setting->id);
         $banner = Banner::first();   
         return view('web.pages.users.sponsor',get_defined_vars());
     }
     public function financialForms(Request $request){
         $setting = Auth::user();
         $financialForms = FinancialForm::where('user_id', $setting->id)->get();
+        $eventRequestForms = EventRequestForm::where('user_id', $setting->id);
         $banner = Banner::first();  
         // dd($financialForms); 
         return view('web.pages.users.financialForms',get_defined_vars());
@@ -72,10 +77,28 @@ class UserSettingController extends Controller
     public function financialDetail($id,Request $request){
         $setting = Auth::user();
     $financialForm = FinancialForm::where('user_id', $setting->id)->findOrFail($id);
+    $eventRequestForms = EventRequestForm::where('user_id', $setting->id);
     $banner = Banner::first();  
     // dd($financialForm);
  
         return view('web.pages.users.financialDetail',get_defined_vars());
+    }
+    public function eventReqForms(Request $request){
+        $setting = Auth::user();
+        $eventRequestForms = EventRequestForm::where('user_id', $setting->id)->get();
+        $financialForms = FinancialForm::where('user_id', $setting->id)->get();
+        $banner = Banner::first();  
+        // dd($financialForms); 
+        return view('web.pages.users.eventReqForms',get_defined_vars());
+    }
+    public function eventReqDetail($id,Request $request){
+        $setting = Auth::user();
+    $eventReqDetail = EventRequestForm::where('user_id', $setting->id)->findOrFail($id);
+    $financialForms = FinancialForm::where('user_id', $setting->id)->get();
+    $banner = Banner::first();  
+    // dd($eventReqDetail);
+ 
+        return view('web.pages.users.eventReqDetail',get_defined_vars());
     }
 
 

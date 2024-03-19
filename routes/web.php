@@ -118,6 +118,9 @@ Route::middleware('admin-not-access')->group(function() {
     Route::get('/financial-forms', [UserSettingController::class,'financialForms'])->name('web.user-financialForms');
     Route::get('/financial-detail/{id}', [UserSettingController::class, 'financialDetail'])->name('web.user-financialDetail');
 
+    Route::get('/eventReq-forms', [UserSettingController::class,'eventReqForms'])->name('web.user-eventReqForms');
+    Route::get('/eventReq-detail/{id}', [UserSettingController::class, 'eventReqDetail'])->name('web.user-eventReqDetail');
+
 
 
     
