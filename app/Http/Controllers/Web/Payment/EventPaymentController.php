@@ -52,7 +52,9 @@ class EventPaymentController extends Controller
                 return redirect()->back()->with('error', $payment['error']);
             }
             if($stripe['status'] == 'succeeded'){     
+     
                 EventRequestForm::create([
+                    'user_id' => Auth::user()->id,
                     'title' => $request->title,
                     'event_category' => $request->event_category,
                     'event_info' => $request->event_info,
@@ -82,7 +84,9 @@ class EventPaymentController extends Controller
                 return redirect()->back()->with('error','Oops! Something went wrong please try again.');
             } 
         }else{
+       
             EventRequestForm::create([
+                'user_id' => Auth::user()->id,
                 'title' => $request->title,
                 'event_category' => $request->event_category,
                 'event_info' => $request->event_info,

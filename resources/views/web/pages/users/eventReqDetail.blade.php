@@ -63,7 +63,8 @@
                                     </div>
                                 </a>
                                 @endif
-                                    <a class="dashboard-link tablinks active" href="{{route('web.user-financialForms')}}">
+                                @if($financialForms->count() > 0)
+                                    <a class="dashboard-link tablinks" href="{{route('web.user-financialForms')}}">
                                         <div class="dashboard-links">
                                             <div class="d-flex align-items-center gap-2 gap-lg-4">
                                                 <img src="{{ asset('assets/web/images/icon_group.png') }}" alt="icon" class="icons">
@@ -71,8 +72,8 @@
                                             </div>
                                         </div>
                                     </a>
-                                    @if($eventRequestForms->count() > 0)
-                                    <a class="dashboard-link tablinks" href="{{route('web.user-eventReqForms')}}">
+                                    @endif
+                                    <a class="dashboard-link tablinks active" href="{{route('web.user-eventReqForms')}}">
                                         <div class="dashboard-links">
                                             <div class="d-flex align-items-center gap-2 gap-lg-4">
                                                 <img src="{{ asset('assets/web/images/icon_group.png') }}" alt="icon" class="icons">
@@ -80,7 +81,6 @@
                                             </div>
                                         </div>
                                     </a>
-                                @endif
                             </div>
                         </div>
                         <div class="dashboard_content flex-lg-grow-1">
@@ -88,7 +88,7 @@
                                 <div class="container-fluid">
                                     <div class="row mb-5">
                                         <div class="col-12 mt-3">
-                                            <h2 class="section_title">Financial Detail</h2>
+                                            <h2 class="section_title">Event Request Detail</h2>
                                         </div>
                                     </div>
                                     <div class="row">
@@ -100,161 +100,82 @@
                                                             <!-- /.card-header -->
                                                             <div class="card-body">
                                                               <div class="row">
-                                                                <div class="col-sm-4"><h3>First Name:</h3></div>
-                                                                <div class="col-sm-8">{{ $financialForm->first_name }}</div>
+                                                                <div class="col-sm-4"><h3>Title:</h3></div>
+                                                                <div class="col-sm-8">{{ $eventReqDetail->title }}</div>
                                                             </div>
                                                             <hr>
                                                               <div class="row">
-                                                                <div class="col-sm-4"><h3>Last Name:</h3></div>
-                                                                <div class="col-sm-8">{{ $financialForm->last_name }}</div>
+                                                                <div class="col-sm-4"><h3>Event Category:</h3></div>
+                                                                <div class="col-sm-8">{{ $eventReqDetail->event_category }}</div>
                                                             </div>
                                                             <hr>
                                                               <div class="row">
-                                                                <div class="col-sm-4"><h3>Email:</h3></div>
-                                                                <div class="col-sm-8">{{ $financialForm->email }}</div>
+                                                                <div class="col-sm-4"><h3>Event Information:</h3></div>
+                                                                <div class="col-sm-8">{{ $eventReqDetail->event_info }}</div>
                                                             </div>
                                                             <hr>
                                                               <div class="row">
-                                                                <div class="col-sm-4"><h3>Phone Number:</h3></div>
-                                                                <div class="col-sm-8">{{ $financialForm->phone }}</div>
+                                                                <div class="col-sm-4"><h3>Start Date:</h3></div>
+                                                                <div class="col-sm-8">{{ $eventReqDetail->start_date }}</div>
                                                             </div>
                                                             <hr>
                                                               <div class="row">
-                                                                <div class="col-sm-4"><h3>Business Name:</h3></div>
-                                                                <div class="col-sm-8">{{ $financialForm->business_name }}</div>
+                                                                <div class="col-sm-4"><h3>End Date:</h3></div>
+                                                                <div class="col-sm-8">{{ $eventReqDetail->end_date }}</div>
                                                             </div>
                                                             <hr>
                                                               <div class="row">
-                                                                <div class="col-sm-4"><h3>Business Address:</h3></div>
-                                                                <div class="col-sm-8">{{ $financialForm->business_address }}</div>
+                                                                <div class="col-sm-4"><h3>Start Time:</h3></div>
+                                                                <div class="col-sm-8">{{ $eventReqDetail->start_time }}</div>
                                                             </div>
                                                             <hr>
                                                               <div class="row">
-                                                                <div class="col-sm-4"><h3>Purpose Of Funding:</h3></div>
-                                                                <div class="col-sm-8">{{ $financialForm->fund_purpose }}</div>
+                                                                <div class="col-sm-4"><h3>End Time:</h3></div>
+                                                                <div class="col-sm-8">{{ $eventReqDetail->end_time }}</div>
                                                             </div>
                                                             <hr>
                                                             
                                                             <div class="row">
-                                                              <div class="col-sm-4"><h3>Fund Amount:</h3></div>
-                                                              <div class="col-sm-8">{{ $financialForm->fund_amount }}</div>
+                                                              <div class="col-sm-4"><h3>Event Request Type:</h3></div>
+                                                              <div class="col-sm-8">{{ $eventReqDetail->event_req_type }}</div>
                                                           </div>
                                                           <hr>
                                                             <div class="row">
-                                                              <div class="col-sm-4"><h3>Country:</h3></div>
-                                                              <div class="col-sm-8">{{ $financialForm->country }}</div>
+                                                              <div class="col-sm-4"><h3>Event Cost:</h3></div>
+                                                              <div class="col-sm-8">{{ $eventReqDetail->event_cost }}</div>
                                                           </div>
                                                           <hr>
                                                             <div class="row">
-                                                              <div class="col-sm-4"><h3>Business Type:</h3></div>
-                                                              <div class="col-sm-8">{{ $financialForm->business_type }}</div>
+                                                              <div class="col-sm-4"><h3>First Name:</h3></div>
+                                                              <div class="col-sm-8">{{ $eventReqDetail->first_name }}</div>
                                                           </div>
                                                           <hr>
                                                             <div class="row">
-                                                              <div class="col-sm-4"><h3>Net Worth:</h3></div>
-                                                              <div class="col-sm-8">{{ $financialForm->net_worth }}</div>
+                                                              <div class="col-sm-4"><h3>Last Name:</h3></div>
+                                                              <div class="col-sm-8">{{ $eventReqDetail->last_name }}</div>
                                                           </div>
                                                           <hr>
                                                            
                                                             <div class="row">
-                                                              <div class="col-sm-4"><h3>Program:</h3></div>
-                                                              <div class="col-sm-8">{{ $financialForm->program }}</div>
+                                                              <div class="col-sm-4"><h3>Email:</h3></div>
+                                                              <div class="col-sm-8">{{ $eventReqDetail->email }}</div>
                                                           </div>
                                                           <hr>
                                                             <div class="row">
-                                                              <div class="col-sm-4"><h3>Recent Year Income:</h3></div>
-                                                              <div class="col-sm-8">{{ $financialForm->recent_year_income }}</div>
+                                                              <div class="col-sm-4"><h3>Phone Number:</h3></div>
+                                                              <div class="col-sm-8">{{ $eventReqDetail->telephone }}</div>
                                                           </div>
                                                           <hr>
                                                             <div class="row">
-                                                              <div class="col-sm-4"><h3>File:</h3></div>
-                                                              <div class="col-sm-8">
-                                                                {{--******** File Download Working Start ********--}}
-                               @if($financialForm->file)
-                               @php $ext = substr($financialForm->file, strrpos($financialForm->file, '.')+1); @endphp
-                               @if(strtolower($ext)=='pdf')
-                               <div class="row">
-                                   <div class="col-4">
-                                       <a download href="{{ asset('assets/web/images/'.$financialForm->file) }}" target="_blank">
-                                           <img class="selected_img" src="{{ asset('assets/web/images/pdf.png') }}" height="50px" width="50px">
-                                       </a>
-                                   </div>
-                               </div>
-                               @elseif(strtolower($ext)=='doc')
-                               <div class="row">
-                                   <div class="col-4">
-                                       <a download href="{{ asset('assets/web/images/'.$financialForm->file) }}" target="_blank">
-                                           <img class="selected_img" src="{{ asset('assets/web/images/doc.png') }}" height="50px" width="50px">
-                                       </a>
-                                   </div>
-                               </div>
-                               @elseif(strtolower($ext)=='docx')
-                               <div class="row">
-                                   <div class="col-4">
-                                       <a download href="{{ asset('assets/web/images/'.$financialForm->file) }}" target="_blank">
-                                           <img class="selected_img" src="{{ asset('assets/web/images/docx.png') }}" height="50px" width="50px">
-                                       </a>
-                                   </div>
-                               </div>
-                               @elseif(strtolower($ext)=='txt')
-                               <div class="row">
-                                   <div class="col-4">
-                                       <a download href="{{ asset('assets/web/images/'.$financialForm->file) }}" target="_blank">
-                                           <img class="selected_img" src="{{ asset('assets/web/images/txt.png') }}" height="50px" width="50px">
-                                       </a>
-                                   </div>
-                               </div>
-                               @elseif(strtolower($ext)=='rtf')
-                               <div class="row">
-                                   <div class="col-4">
-                                       <a download href="{{ asset('assets/web/images/'.$financialForm->file) }}" target="_blank">
-                                           <img class="selected_img" src="{{ asset('assets/web/images/rtf.png') }}" height="50px" width="50px">
-                                       </a>
-                                   </div>
-                               </div>
-                               @elseif(strtolower($ext)=='html')
-                               <div class="row">
-                                   <div class="col-4">
-                                       <a download href="{{ asset('assets/web/images/'.$ifinancialDatatem->file) }}" target="_blank">
-                                           <img class="selected_img" src="{{ asset('assets/web/images/html.png') }}" height="50px" width="50px">
-                                       </a>
-                                   </div>
-                               </div>
-                               @elseif(strtolower($ext)=='odt')
-                               <div class="row">
-                                   <div class="col-4">
-                                       <a download href="{{ asset('assets/web/images/'.$financialForm->file) }}" target="_blank">
-                                           <img class="selected_img" src="{{ asset('assets/web/images/odt.png') }}" height="50px" width="50px">
-                                       </a>
-                                   </div>
-                               </div>
-                               @elseif(strtolower($ext)=='tex')
-                               <div class="row">
-                                   <div class="col-4">
-                                       <a download href="{{ asset('assets/web/images/'.$financialForm->file) }}" target="_blank">
-                                           <img class="selected_img" src="{{ asset('assets/web/images/tex.png') }}" height="50px" width="50px">
-                                       </a>
-                                   </div>
-                               </div>
-                               @else
-                               <div class="row">
-                                   <div class="col-4">
-                                       <a download href="{{ asset('assets/web/images/'.$financialForm->file) }}" target="_blank">
-                                           <img class="selected_img" src="{{ asset('assets/web/images/'.$financialForm->file) }}" height="50px" width="50px">
-                                       </a>
-                                   </div>
-                               </div>
-                               @endif
-                           @else
-                               <p class="text-danger">{{ "No file selected" }}</p>
-                           @endif
-                      
-                       {{--******** End File Download Working ********--}}
-                                                              </div>
+                                                              <div class="col-sm-4"><h3>Event Location:</h3></div>
+                                                              <div class="col-sm-8">{{ $eventReqDetail->event_location }}</div>
                                                           </div>
-                                                         
-                                                           
-                                                              
+                                                          <hr>
+                                                            <div class="row">
+                                                              <div class="col-sm-4"><h3>Event Type:</h3></div>
+                                                              <div class="col-sm-8">{{ $eventReqDetail->event }}</div>
+                                                          </div>
+                                                    
                                                             </div>
                                                             <!-- /.card-body -->
                                                         </div>

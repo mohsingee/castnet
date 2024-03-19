@@ -64,7 +64,7 @@
                                 </a>
                                 @endif
                                 @if($financialForms->count() > 0)
-                                    <a class="dashboard-link tablinks active" href="{{route('web.user-financialForms')}}">
+                                    <a class="dashboard-link tablinks" href="{{route('web.user-financialForms')}}">
                                         <div class="dashboard-links">
                                             <div class="d-flex align-items-center gap-2 gap-lg-4">
                                                 <img src="{{ asset('assets/web/images/icon_group.png') }}" alt="icon" class="icons">
@@ -74,7 +74,7 @@
                                     </a>
                                 @endif
                                 @if($eventRequestForms->count() > 0)
-                                    <a class="dashboard-link tablinks" href="{{route('web.user-eventReqForms')}}">
+                                    <a class="dashboard-link tablinks active" href="{{route('web.user-eventReqForms')}}">
                                         <div class="dashboard-links">
                                             <div class="d-flex align-items-center gap-2 gap-lg-4">
                                                 <img src="{{ asset('assets/web/images/icon_group.png') }}" alt="icon" class="icons">
@@ -91,7 +91,7 @@
                                 <div class="container-fluid">
                                     <div class="row mb-5">
                                         <div class="col-12 mt-3">
-                                            <h2 class="section_title">Financial Forms</h2>
+                                            <h2 class="section_title">Event Request Forms</h2>
                                         </div>
                                     </div>
                                     <div class="row">
@@ -99,20 +99,22 @@
                                         <thead>
                                           <tr>
                                             <th>id</th>
-                                            <th>Name</th>
-                                            <th>Email</th>
-                                            <th>Phone Number</th>
+                                            <th>Title</th>
+                                            <th>Event Category</th>
+                                            <th>Event Cost</th>
+                                            <th>Event Location</th>
                                             <th>Action</th>
                                           </tr>
                                         </thead>
                                         <tbody>
-                                        @foreach($financialForms as $financialForm)
+                                        @foreach($eventRequestForms as $eventForm)
                                             <tr>
                                                 <td>{{ $loop->iteration }}</td>
-                                                <td>{{ $financialForm->first_name }} {{ $financialForm->last_name }}</td>
-                                                <td>{{ $financialForm->email }}</td>
-                                                <td>{{ $financialForm->phone }}</td>
-                                                <td><a href="{{ route('web.user-financialDetail', ['id' => $financialForm->id]) }}" class="btn-outline-info"><i class="fa fa-eye"></i></a></td>
+                                                <td>{{ $eventForm->title }}</td>
+                                                <td>{{ $eventForm->event_category }}</td>
+                                                <td>{{ $eventForm->event_cost }}</td>
+                                                <td>{{ $eventForm->event_location }}</td>
+                                                <td><a href="{{ route('web.user-eventReqDetail', ['id' => $eventForm->id]) }}" class="btn-outline-info"><i class="fa fa-eye"></i></a></td>
 
                                             </tr>
                                         @endforeach
