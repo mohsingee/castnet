@@ -115,6 +115,9 @@ Route::middleware('admin-not-access')->group(function() {
     Route::put('/user-updpass/{id}', [UserSettingController::class,'updatePassword'])->name('user.updPass');
     Route::get('/user-member', [UserSettingController::class,'member'])->name('web.user-member');
     Route::get('/user-partner', [UserSettingController::class,'partner'])->name('web.user-partner');
+    Route::get('/financial-forms', [UserSettingController::class,'financialForms'])->name('web.user-financialForms');
+    Route::get('/financial-detail/{id}', [UserSettingController::class, 'financialDetail'])->name('web.user-financialDetail');
+
     Route::get('/user-sponsor', [UserSettingController::class,'sponsor'])->name('web.user-sponsor');
 });
 include __DIR__.'/admin.php';
