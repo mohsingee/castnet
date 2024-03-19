@@ -63,6 +63,17 @@
                                     </div>
                                 </a>
                                 @endif
+                                @if($financialForms->count() > 0)
+                                    <a class="dashboard-link tablinks" href="{{route('web.user-financialForms')}}">
+                                        <div class="dashboard-links">
+                                            <div class="d-flex align-items-center gap-2 gap-lg-4">
+                                                <img src="{{ asset('assets/web/images/icon_group.png') }}" alt="icon" class="icons">
+                                                <span>financial from</span>
+                                            </div>
+                                        </div>
+                                    </a>
+                                @endif
+
                             </div>
                         </div>
                         <div class="dashboard_content flex-lg-grow-1">
