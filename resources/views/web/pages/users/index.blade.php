@@ -18,7 +18,7 @@
         <div class="container-fluid px-0">
             <div class="row g-0">
                 <div class="col-12">
-                    <div class="d-flex flex-column flex-lg-row gap-3">
+                    <div class="d-flex flex-column flex-lg-row gap-3 min-h-dash">
                         <div class="dashboard_side flex-lg-grow-1">
                             <div class="profile-box">
                                 <img src="{{ asset('assets/web/images/dashboard_profile.png') }}" alt="profile" class="profile-img">
@@ -48,7 +48,7 @@
                                     <div class="dashboard-links">
                                         <div class="d-flex align-items-center gap-2 gap-lg-4">
                                             <img src="{{ asset('assets/web/images/icon_group.png') }}" alt="icon" class="icons">
-                                            <span>sponser account</span>
+                                            <span>sponser accounts</span>
                                         </div>
                                     </div>
                                 </a>
@@ -62,6 +62,26 @@
                                         </div>
                                     </div>
                                 </a>
+                                @endif
+                                @if($financialForms->count() > 0)
+                                    <a class="dashboard-link tablinks" href="{{route('web.user-financialForms')}}">
+                                        <div class="dashboard-links">
+                                            <div class="d-flex align-items-center gap-2 gap-lg-4">
+                                                <img src="{{ asset('assets/web/images/icon_group.png') }}" alt="icon" class="icons">
+                                                <span>Financial Forms</span>
+                                            </div>
+                                        </div>
+                                    </a>
+                                @endif
+                                @if($eventRequestForms->count() > 0)
+                                    <a class="dashboard-link tablinks" href="{{route('web.user-eventReqForms')}}">
+                                        <div class="dashboard-links">
+                                            <div class="d-flex align-items-center gap-2 gap-lg-4">
+                                                <img src="{{ asset('assets/web/images/icon_group.png') }}" alt="icon" class="icons">
+                                                <span>event request</span>
+                                            </div>
+                                        </div>
+                                    </a>
                                 @endif
                             </div>
                         </div>

@@ -18,6 +18,11 @@ class UserSettingController extends Controller
     public function index(Request $request){
         $setting = Auth::user();
         $banner = Banner::first();   
+        $member = CompanyInformation::where('user_id', $setting->id)->first();
+        $sponsor = SponsorUser::where('user_id', $setting->id)->first();
+        $partner = PartnerUser::where('user_id', $setting->id)->first();
+        $financialForms = FinancialForm::where('user_id', $setting->id);
+        $eventRequestForms = EventRequestForm::where('user_id', $setting->id);
         return view('web.pages.users.index',get_defined_vars());
     }
 

@@ -4936,6 +4936,22 @@ header .offcanvas.offcanvas-end .offcanvas-body ul a {
     font-size: 1.4rem;
 }
 
+/*  */
+section.section_dashboard .min-h-dash {
+    min-height: 100vh !important;
+    overflow: auto !important;
+}
+
+section.section_dashboard {
+    height: 600px;
+    overflow: auto;
+}
+
+section.section_dashboard::-webkit-scrollbar {
+    display: none;
+}
+/*  */
+
 .section_active_job .form-control:focus {
     box-shadow: none;
 }
@@ -5949,10 +5965,11 @@ section.section_block .sec-dir-card .sec-dir-card-med-icon a.media-icon-bg i {
     .section_dashboard .dashboard_side .dashboard-link:hover .icons {
         filter: brightness(0) invert(8%) sepia(15%) saturate(5867%) hue-rotate(190deg) brightness(97%) contrast(98%);
     }
-
     .section_dashboard .section_content .input-box {
         display: flex;
         align-items: center;
         padding: 1.5rem 0;
     }
+ 
 }
+

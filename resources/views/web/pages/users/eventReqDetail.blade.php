@@ -18,7 +18,7 @@
         <div class="container-fluid px-0">
             <div class="row g-0">
                 <div class="col-12">
-                    <div class="d-flex flex-column flex-lg-row gap-3">
+                    <div class="d-flex flex-column flex-lg-row gap-3 min-h-dash">
                         <div class="dashboard_side flex-lg-grow-1">
                             <div class="profile-box">
                                 <img src="{{ asset('assets/web/images/dashboard_profile.png') }}" alt="profile" class="profile-img">
