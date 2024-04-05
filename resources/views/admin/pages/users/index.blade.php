@@ -22,6 +22,12 @@
                 <div class="col-md-12">
                     <div class="card">
                         <!-- /.card-header -->
+                         <!-- add new member work start -->
+                         <div class="card-header">
+                            <a href="{{ route('controlMembers.index') }}" class="btn btn-sm btn-primary" style="float: right;">Add New Member</a>
+                        </div>
+                        <!-- add new member work end -->
+
                         <div class="card-body">
                           <table id="example1" class="table table-bordered table-striped">
                             <thead>
