@@ -63,7 +63,7 @@
                                         @elseif($team->type==5)
                                             COUNCIL OF INDUSTRY ADVISORS
                                         @elseif($team->type==6)
-                                            PROGRAM OF LEADERS
+                                            PROGRAM LEADERS
                                         @elseif($team->type==7)
                                             STAFF
                                         @endif

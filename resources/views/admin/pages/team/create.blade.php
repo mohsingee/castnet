@@ -53,13 +53,13 @@
                                         <div class="form-group errorshow">
                                             <label for="prin_title">Type</label>
                                             <select class="form-control" name="type">
-                                                <option selected disabled hidden>SELECT TYPE</option>
+                                                <option selected disabled>SELECT TYPE</option>
                                                 <option value="1">FOUNDER</option>
                                                 <option value="2">BOARD OF DIRECTORS</option>
                                                 <option value="3">MANAGEMENT TEAM</option>
                                                 <option value="4">COUNCIL OF COUNTRY DELEGATES</option>
                                                 <option value="5">COUNCIL OF INDUSTRY ADVISORS</option>
-                                                <option value="6">PROGRAM OF LEADERS</option>
+                                                <option value="6">PROGRAM LEADERS</option>
                                                 <option value="7">STAFF</option>
                                             </select>
                                         </div>
