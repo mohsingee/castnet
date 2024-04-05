@@ -1794,12 +1794,12 @@
                                     <p>CONTACT US</p>
                                 </a>
                             </li>
-                            <li class="nav-item">
+                            <!-- <li class="nav-item">
                                 <a href="{{ route('company.Info') }}" class="nav-link {{(request()->routeIs('company.Info','companyInfo.detail')) ? 'active' : ''}}">
                                     <i class="far fa-circle nav-icon"></i>
                                     <p>COMPANY INFO</p>
                                 </a>
-                            </li>
+                            </li> -->
                             <li class="nav-item">
                                 <a href="{{ route('event.request') }}" class="nav-link {{(request()->routeIs('event.request','eventRequest.detail')) ? 'active' : ''}}">
                                     <i class="far fa-circle nav-icon"></i>
@@ -1835,8 +1835,8 @@
                     {{-- User data section end --}}
 
                     {{-- Users section start --}}
-                    <li class="nav-item {{(request()->routeIs(['registerusers.index','registerusers.detail'])) ? 'menu-is-opening menu-open' : ''}}">
-                        <a href="{{ route('registerusers.index') }}" class="nav-link {{(request()->routeIs('registerusers.index','registerusers.detail')) ? 'active' : ''}}">
+                    <li class="nav-item {{(request()->routeIs(['registerusers.index','controlMembers.index','registerusers.detail'])) ? 'menu-is-opening menu-open' : ''}}">    
+                        <a href="{{ route('registerusers.index') }}" class="nav-link {{(request()->routeIs('registerusers.index','registerusers.detail','controlMembers.index')) ? 'active' : ''}}">
                             <i class="nav-icon fas fa-book"></i>
                             <p>
                                 REGISTERED USERS

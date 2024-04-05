@@ -33,6 +33,7 @@ use App\Http\Controllers\Admin\Who_we_are\WhoWeArePageController;
 use App\Http\Controllers\Admin\Job_openings\JobOpeningController;
 use App\Http\Controllers\Admin\Evaluation\EvaluationController;
 use App\Http\Controllers\Admin\Membership\MembershipController;
+use App\Http\Controllers\Admin\Membership\AddMemberController;
 use App\Http\Controllers\Admin\OpporProjects\ProjectController;
 use App\Http\Controllers\Admin\Join\JoinFormSettingController;
 use App\Http\Controllers\Admin\Events\EventSection1Controller;
@@ -556,6 +557,11 @@ Route::middleware('auth')->group(function() {
             Route::post('/partnership-status', [UsersDataController::class, 'partnershipStatus'])->name('partnership.status');
             Route::post('/membership-status', [UsersDataController::class, 'membershipStatus'])->name('membership.status');
             // -------------------------------------------Users route end--------------------------------------------------------
+
+
+            // ------------------- add member routes start ----------------------
+            Route::resource('controlMembers', AddMemberController::class);
+            // ------------------- add member routes end ----------------------
         });
     });
 });
