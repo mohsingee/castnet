@@ -24,7 +24,7 @@
                         <!-- /.card-header -->
                          <!-- add new member work start -->
                          <div class="card-header">
-                            <a href="{{ route('controlMembers.index') }}" class="btn btn-sm btn-primary" style="float: right;">Add New Member</a>
+                            <a href="{{ route('membershipuser.create') }}" class="btn btn-sm btn-primary" style="float: right;">Add New Member</a>
                         </div>
                         <!-- add new member work end -->
 

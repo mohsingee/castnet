@@ -107,7 +107,6 @@ Route::middleware('admin-not-access')->group(function() {
     
     Route::post('store-financial', [DefaultController::class,'storeFinancial'])->name('store.financial');
     Route::post('store-partneruser', [DefaultController::class,'storePartner'])->name('store.partneruser');
-    Route::post('check-email',[DefaultController::class,'checkEmail']);
 
     Route::get('filter-members',[DefaultController::class,'filterMembers'])->name('filter.members');
 
@@ -121,11 +120,9 @@ Route::middleware('admin-not-access')->group(function() {
     Route::get('/eventReq-forms', [UserSettingController::class,'eventReqForms'])->name('web.user-eventReqForms');
     Route::get('/eventReq-detail/{id}', [UserSettingController::class, 'eventReqDetail'])->name('web.user-eventReqDetail');
 
-
-
-    
     Route::get('/user-sponsor', [UserSettingController::class,'sponsor'])->name('web.user-sponsor');
 });
+Route::post('check-email',[DefaultController::class,'checkEmail']);
 include __DIR__.'/admin.php';
 
 Route::get('/commands', function () {

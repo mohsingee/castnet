@@ -33,7 +33,6 @@ use App\Http\Controllers\Admin\Who_we_are\WhoWeArePageController;
 use App\Http\Controllers\Admin\Job_openings\JobOpeningController;
 use App\Http\Controllers\Admin\Evaluation\EvaluationController;
 use App\Http\Controllers\Admin\Membership\MembershipController;
-use App\Http\Controllers\Admin\Membership\AddMemberController;
 use App\Http\Controllers\Admin\OpporProjects\ProjectController;
 use App\Http\Controllers\Admin\Join\JoinFormSettingController;
 use App\Http\Controllers\Admin\Events\EventSection1Controller;
@@ -72,6 +71,7 @@ use App\Http\Controllers\Admin\Usa\UsaController;
 use App\Http\Controllers\Admin\WidgetsController;
 use App\Http\Controllers\Admin\AdvocacyCSection;
 use App\Http\Controllers\Admin\BannerController;
+use App\Http\Controllers\Web\DefaultController;
 use App\Http\Controllers\Admin\PagesController;
 use App\Http\Controllers\Admin\Privacy\PrivacyController;
 use App\Http\Controllers\Admin\Term_of_use\TermOfUseController;
@@ -84,6 +84,7 @@ Route::post('/check-password', [SettingController::class,'checkPassword']);
 Route::middleware('auth')->group(function() {
     Route::middleware('user-not-access')->group(function() {
         Route::prefix('admin')->group(function () {
+            Route::post('checkemail',[DefaultController::class,'checkEmail']);
             Route::get('/dashboard', [PagesController::class, 'index'])->name('admin.index');
 
             //---** Web setting **---//
@@ -187,6 +188,8 @@ Route::middleware('auth')->group(function() {
             Route::get('/membership-section1', [MembershipController::class, 'section1'])->name('membership.section1');
             Route::get('/membership-section3', [MembershipController::class, 'section3'])->name('membership.section3');
             Route::put('/membership-updation/{id}', [MembershipController::class, 'updation'])->name('membership.updation');
+            Route::get('/create-member', [MembershipController::class, 'createMember'])->name('membershipuser.create');
+            Route::post('/store-member', [MembershipController::class, 'storeMember'])->name('membershipuser.store');
             // ---- Membership page routes end ----
 
             // ---- Join page routes start ----
@@ -557,11 +560,6 @@ Route::middleware('auth')->group(function() {
             Route::post('/partnership-status', [UsersDataController::class, 'partnershipStatus'])->name('partnership.status');
             Route::post('/membership-status', [UsersDataController::class, 'membershipStatus'])->name('membership.status');
             // -------------------------------------------Users route end--------------------------------------------------------
-
-
-            // ------------------- add member routes start ----------------------
-            Route::resource('controlMembers', AddMemberController::class);
-            // ------------------- add member routes end ----------------------
         });
     });
 });
