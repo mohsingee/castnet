@@ -57,5 +57,29 @@
     //   mode: "htmlmixed",
     //   theme: "monokai"
     // });
-  })
+  });
+
+  $("body").on("keyup", "#email_check", function (e) {
+        e.preventDefault();
+        let email_check = $('#email_check').val();
+        $.ajax({
+            method: "Post",
+            url: 'checkemail',
+            dataType: 'html',
+            data: {
+                _token: $('meta[name="csrf-token"]').attr('content'),
+                'email_check': email_check,
+            },
+            success: function (response) {
+                if (response == "false") {
+                    $("#email_valid").val('not valid');
+                    $("#email_message").html(
+                        "<font color=red>The email has already been taken.</font>");
+                } else if (response == "true") {
+                    $("#email_message").html('');
+                    $("#email_valid").val('valid');
+                }
+            }
+        });
+    });
 </script>

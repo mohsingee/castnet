@@ -1835,8 +1835,8 @@
                     {{-- User data section end --}}
 
                     {{-- Users section start --}}
-                    <li class="nav-item {{(request()->routeIs(['registerusers.index','controlMembers.index','registerusers.detail'])) ? 'menu-is-opening menu-open' : ''}}">    
-                        <a href="{{ route('registerusers.index') }}" class="nav-link {{(request()->routeIs('registerusers.index','registerusers.detail','controlMembers.index')) ? 'active' : ''}}">
+                    <li class="nav-item {{(request()->routeIs(['registerusers.index','membershipuser*','registerusers.detail'])) ? 'menu-is-opening menu-open' : ''}}">    
+                        <a href="{{ route('registerusers.index') }}" class="nav-link {{(request()->routeIs('registerusers.index','registerusers.detail','membershipuser*')) ? 'active' : ''}}">
                             <i class="nav-icon fas fa-book"></i>
                             <p>
                                 REGISTERED USERS

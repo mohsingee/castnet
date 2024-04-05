@@ -62,7 +62,7 @@
                                                     <option value="3" {{ $team->type == 3 ? 'selected' : '' }}>MANAGEMENT TEAM</option>
                                                     <option value="4" {{ $team->type == 4 ? 'selected' : '' }}>COUNCIL OF COUNTRY DELEGATES</option>
                                                     <option value="5" {{ $team->type == 5 ? 'selected' : '' }}>COUNCIL OF INDUSTRY ADVISORS</option>
-                                                    <option value="6" {{ $team->type == 6 ? 'selected' : '' }}>PROGRAM OF LEADERS</option>
+                                                    <option value="6" {{ $team->type == 6 ? 'selected' : '' }}>PROGRAM LEADERS</option>
                                                     <option value="7" {{ $team->type == 7 ? 'selected' : '' }}>STAFF</option>
                                                 </select>
                                         </div>
