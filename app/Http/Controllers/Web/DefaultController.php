@@ -165,6 +165,9 @@ class DefaultController extends Controller
             'additional_information' => $request->additional_information,
             'data_protection_consent' => $request->data_protection_consent,
         ]);
+        if(isset(Auth::user()->id)){
+            return redirect()->route('web.user-dashboard')->with('success','Congratulations! You have successfully joined the partnership.');
+        }
         return redirect()->back()->with('success','Congratulations! You have successfully joined the partnership.');
     }
 

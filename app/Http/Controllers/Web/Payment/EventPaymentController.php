@@ -4,10 +4,12 @@ namespace App\Http\Controllers\Web\Payment;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Auth;
+use App\Mail\RegistrationPayment;
 use App\Models\EventRequestForm;
 use App\Models\PaymentModel;
 use Illuminate\Http\Request;
 use Stripe;
+use Mail;
 class EventPaymentController extends Controller
 {
     public function payment(Request $request){
@@ -52,7 +54,6 @@ class EventPaymentController extends Controller
                 return redirect()->back()->with('error', $payment['error']);
             }
             if($stripe['status'] == 'succeeded'){     
-     
                 EventRequestForm::create([
                     'user_id' => Auth::user()->id,
                     'title' => $request->title,
@@ -78,6 +79,10 @@ class EventPaymentController extends Controller
                     'amount'=>$request->event_fee,
                     'type'=>2,
                 ]);
+                $data['name'] = $request->first_name;
+                $data['message'] = "Your event has been created successfully. Your payment has been recieved Transaction ID is #".$stripe['id'];
+                $email =  $request->email;
+                Mail::to($email)->send(new RegistrationPayment($data));
                 session()->forget('eventRequestData');
                 return redirect()->back()->with('success','Congratulations! Event Request created successfully. Transaction ID is #'.$stripe['id']);
             } else{

@@ -72,6 +72,7 @@ use App\Models\SponsorUser;
 class PagesController extends Controller
 {
     public function index(Request $request){
+        $keywords = "CASTNET,Global markets,International business,Global networking,Economic trends,Market trends,Global commerce,Business opportunities,Global economy,International markets,Global Sourcing";
         $banner = Banner::first();
         $section1 = HomeSection1::all();
         $section2 = HomeSection2::first();
@@ -179,6 +180,7 @@ class PagesController extends Controller
     }
 
     public function aboutUs(){
+        $keywords = "About CASTNET,International partnerships,Business collaboration,Global investment,International business strategy,Chamber of commerce";
         $banner = PageBanner::where('type',1)->first();
         $section1 = AboutPage::where('section',1)->first();
         $section2 = AboutPage::where('section',2)->first();
@@ -187,6 +189,7 @@ class PagesController extends Controller
     }
 
     public function benefits(){
+        $keywords = "Economic strategies,Global entrepreneurship";
         $banner = PageBanner::where('type',7)->first();
         $section1 = BenefitsModel::where('type',1)->with('details')->first();
         $section2 = BenefitsModel::where('type',2)->with('details')->first();
@@ -194,18 +197,21 @@ class PagesController extends Controller
     }
 
     public function contactUs(){
+        $keywords = "Trade support,International contracts";
         $banner = PageBanner::where('type',4)->first();
         $contact = ContactUsModel::first();
         return view('web.pages.contact_us',get_defined_vars());
     }
 
     public function blog(){
+        $keywords = "Market trends,Economic trends,Global market analysis";
         $banner = PageBanner::where('type',28)->first();
         $blogs = MyBlog::all();
         return view('web.pages.blog',get_defined_vars());
     }
 
     public function events(){
+        $keywords = "International events,Business conferences";
         $banner = PageBanner::where('type',24)->first();
         $section1 = EventModel::where('section',1)->first();
         $section3 = EventModel::where('section',3)->first();
@@ -214,6 +220,7 @@ class PagesController extends Controller
     }
 
     public function evaluation(){
+        $keywords = "Economic development,Business development";
         $banner = PageBanner::where('type',9)->first();
         $section1 = MembershipCommonModel::where(['page'=>'evaluation','section'=>1])->first();
         $section3 = MembershipCommonModel::where(['page'=>'evaluation','section'=>3])->first();
@@ -222,6 +229,7 @@ class PagesController extends Controller
     }
 
     public function rules_of_engagement(){
+        $keywords = "Economic development,Business development";
         $banner = PageBanner::where('type',10)->first();
         $section1 = MembershipCommonModel::where(['section'=>1,'page'=>'roe'])->first();
         $section2 = RulesOfEngagementModel::get();
@@ -229,12 +237,14 @@ class PagesController extends Controller
     }
 
     public function sectors(){
+        $keywords = "International construction,Africa commerce,International Energy,Natural resources,Renewable energy,International textiles,International technology";
         $banner = PageBanner::where('type', 11)->first();
         $sectors = SectorModel::get();
         return view('web.pages.sectors',get_defined_vars());
     }
 
     public function construction(){
+        $keywords = "International construction,Africa commerce,International Energy,Natural resources,Renewable energy,International textiles,International technology";
         $banner = PageBanner::where('type', 12)->first();
         $section1 = SectorCommonSection1::where('type',1)->first();
         $section2 = SectorCommonSection2::where('type',1)->first();
@@ -242,6 +252,7 @@ class PagesController extends Controller
     }
 
     public function agriculture(){
+        $keywords = "International construction,Africa commerce,International Energy,Natural resources,Renewable energy,International textiles,International technology";
         $banner = PageBanner::where('type', 13)->first();
         $section1 = SectorCommonSection1::where('type',2)->first();
         $section2 = SectorCommonSection2::where('type',2)->first();
@@ -249,6 +260,7 @@ class PagesController extends Controller
     }
 
     public function supply_chain(){
+        $keywords = "International construction,Africa commerce,International Energy,Natural resources,Renewable energy,International textiles,International technology";
         $banner = PageBanner::where('type', 14)->first();
         $section1 = SectorCommonSection1::where('type',3)->first();
         $section2 = SectorCommonSection2::where('type',3)->first();
@@ -256,6 +268,7 @@ class PagesController extends Controller
     }
 
     public function technology(){
+        $keywords = "International construction,Africa commerce,International Energy,Natural resources,Renewable energy,International textiles,International technology";
         $banner = PageBanner::where('type', 15)->first();
         $section1 = SectorCommonSection1::where('type',4)->first();
         $section2 = SectorCommonSection2::where('type',4)->first();
@@ -263,6 +276,7 @@ class PagesController extends Controller
     }
 
     public function natural_resources(){
+        $keywords = "International construction,Africa commerce,International Energy,Natural resources,Renewable energy,International textiles,International technology";
         $banner = PageBanner::where('type', 16)->first();
         $section1 = SectorCommonSection1::where('type',5)->first();
         $section2 = SectorCommonSection2::where('type',5)->first();
@@ -270,6 +284,7 @@ class PagesController extends Controller
     }
 
     public function energy(){
+        $keywords = "International construction,Africa commerce,International Energy,Natural resources,Renewable energy,International textiles,International technology";
         $banner = PageBanner::where('type', 17)->first();
         $section1 = SectorCommonSection1::where('type',6)->first();
         $section2 = SectorCommonSection2::where('type',6)->first();
@@ -277,6 +292,7 @@ class PagesController extends Controller
     }
 
     public function textiles(){
+        $keywords = "International construction,Africa commerce,International Energy,Natural resources,Renewable energy,International textiles,International technology";
         $banner = PageBanner::where('type', 18)->first();
         $section1 = SectorCommonSection1::where('type',7)->first();
         $section2 = SectorCommonSection2::where('type',7)->first();
@@ -284,6 +300,7 @@ class PagesController extends Controller
     }
 
     public function advocacy(){
+        $keywords = "Advocacy women,Climate Change";
         $banner = PageBanner::where('type',19)->first();
         $title2 = PartnerSponsorPageTitleModel::where(['page'=>'advocacy','section'=>2])->first();
         $title3 = PartnerSponsorPageTitleModel::where(['page'=>'advocacy','section'=>3])->first();
@@ -294,6 +311,7 @@ class PagesController extends Controller
     }
 
     public function small_businesses(){
+        $keywords = "Advocacy women,Climate Change";
         $banner = PageBanner::where('type',20)->first();
         $section1 = AdvocacyCommonModel::where(['page'=>'small_business','section'=>1])->first();
         $section2 = AdvocacyCommonModel::where(['page'=>'small_business','section'=>2])->first();
@@ -304,6 +322,7 @@ class PagesController extends Controller
     }
 
     public function women(){
+        $keywords = "Advocacy women,Climate Change";
         $banner = PageBanner::where('type',21)->first();
         $section1 = AdvocacyCommonModel::where(['page'=>'women','section'=>1])->first();
         $section2 = AdvocacyCommonModel1::where(['page'=>'women','section'=>2])->get();
@@ -315,6 +334,7 @@ class PagesController extends Controller
     }
 
     public function veterans(){
+        $keywords = "Advocacy women,Climate Change";
         $banner = PageBanner::where('type',22)->first();
         $section1 = AdvocacyCommonModel::where(['page'=>'veterans','section'=>1])->first();
         $section2 = AdvocacyCommonModel1::where(['page'=>'veterans','section'=>2])->get();
@@ -323,6 +343,7 @@ class PagesController extends Controller
     }
 
     public function support_services(){
+        $keywords = "Trade barriers,International trade finance,Global economic policies";
         $banner = PageBanner::where('type',23)->first();
         $section1 = AdvocacyCommonModel::where(['page'=>'support_services','section'=>1])->first();
         $section2 = AdvocacyCommonModel1::where(['page'=>'support_services','section'=>2])->get();
@@ -331,6 +352,7 @@ class PagesController extends Controller
     }
 
     public function international_events(){
+        $keywords = "International events,Business conferences";
         $banner = PageBanner::where('type', 27)->first();
         $events = InternationalEvent::get();
         $widget = CommonEventSection::first();
@@ -352,6 +374,7 @@ class PagesController extends Controller
     }
     
     public function event_request(){
+        $keywords = "International events,Business conferences";
         if (auth()->check()) {
             if (auth()->user()->member==1 && auth()->user()->member_status==0 || auth()->user()->sponsor==1 && auth()->user()->sponsor_status==0 || auth()->user()->partner==1 && auth()->user()->partner_status==0) {
                 $banner = PageBanner::where('type', 26)->first();
@@ -369,12 +392,14 @@ class PagesController extends Controller
     }
 
     public function event_calendar(){
+        $keywords = "International events,Business conferences";
         $banner = PageBanner::where('type', 25)->first();
         $items = OurEventCalenderModel::get();
         return view('web.pages.event_calendar',get_defined_vars());
     }
 
     public function financial(){
+        $keywords = "Small business financing,Trade finance,Financing";
         $banner = PageBanner::where('type', 29)->first();
         $section1 = FinancialCommonModel1::where(['page'=>'financial','section'=>1])->get();
         $section2 = FinancialCommonModel::where(['page'=>'financial','section'=>2])->first();
@@ -383,6 +408,7 @@ class PagesController extends Controller
     }
 
     public function grants(){
+        $keywords = "Small business financing,Trade finance,Financing";
         $banner = PageBanner::where('type', 30)->first();
         $section1 = FinancialCommonModel::where(['page'=>'grants','section'=>1])->first();
         $section2 = FinancialCommonModel1::where(['page'=>'grants','section'=>2])->get();
@@ -390,6 +416,7 @@ class PagesController extends Controller
     }
 
     public function funding(){
+        $keywords = "Small business financing,Trade finance,Financing";
         $banner = PageBanner::where('type', 31)->first();
         $section1 = FinancialCommonModel::where(['page'=>'funding','section'=>1])->first();
         $section2 = FinancialCommonModel1::where(['page'=>'funding','section'=>2])->get();
@@ -397,6 +424,7 @@ class PagesController extends Controller
     }
 
     public function forms(){
+        $keywords = "Small business financing,Trade finance,Financing";
         if (auth()->check()) {
             if (auth()->user()->member==1 && auth()->user()->member_status==0 || auth()->user()->sponsor==1 && auth()->user()->sponsor_status==0) {
                 $banner = PageBanner::where('type', 58)->first();
@@ -410,6 +438,7 @@ class PagesController extends Controller
     }
 
     public function partners_sponsors(){
+        $keywords = "International partnerships,Investors";
         $banner = PageBanner::where('type', 32)->first();
         $section1 = PartnersModel::where('section',1)->get();
         $title1 = PartnerSponsorPageTitleModel::where(['page'=>'partners_sponsors','section'=>1])->first();
@@ -419,6 +448,7 @@ class PagesController extends Controller
     }
 
     public function become_partner(){
+        $keywords = "International partnerships,Investors";
         if(Auth::user()){
             if(auth()->user()->partner==1){
                 return redirect()->back()->with('error','Oops! You cannot access this page because you are already a partner.');
@@ -436,6 +466,7 @@ class PagesController extends Controller
     }
 
     public function become_sponsor(){
+        $keywords = "International partnerships,Investors";
         if(Auth::user()){
             if(auth()->user()->sponsor==1){
                 return redirect()->back()->with('error','Oops! You cannot access this page because you are already a sponsor.');
@@ -452,6 +483,7 @@ class PagesController extends Controller
     }
 
     public function outreach(){
+        $keywords = "Uganda,Zimbabwe,Ghana,DRC,South Africa,Cote d’Ivoire,Chad,Cameroon,Brazil";
         $banner = PageBanner::where('type', 35)->first();
         $section1 = OutreachCommonSectionModel::where(['page'=>'outreach','section'=>1])->first();
         $section2 = OutreachCommonSectionModel::where(['page'=>'outreach','section'=>2])->first();
@@ -460,6 +492,7 @@ class PagesController extends Controller
     }
 
     public function chad(){
+        $keywords = "Uganda,Zimbabwe,Ghana,DRC,South Africa,Cote d’Ivoire,Chad,Cameroon,Brazil";
         $banner = PageBanner::where('type', 36)->first();
         $section1 = OutreachCommonSectionModel::where(['page'=>'chad','section'=>1])->first();
         $section2 = OutreachCommonSectionModel::where(['page'=>'chad','section'=>2])->first();
@@ -467,6 +500,7 @@ class PagesController extends Controller
     }
 
     public function ghana(){
+        $keywords = "Uganda,Zimbabwe,Ghana,DRC,South Africa,Cote d’Ivoire,Chad,Cameroon,Brazil";
         $banner = PageBanner::where('type', 37)->first();
         $section1 = OutreachCommonSectionModel::where(['page'=>'ghana','section'=>1])->first();
         $section2 = OutreachCommonSectionModel::where(['page'=>'ghana','section'=>2])->first();
@@ -474,6 +508,7 @@ class PagesController extends Controller
     }
 
     public function south_africa(){
+        $keywords = "Uganda,Zimbabwe,Ghana,DRC,South Africa,Cote d’Ivoire,Chad,Cameroon,Brazil";
         $banner = PageBanner::where('type', 38)->first();
         $section1 = OutreachCommonSectionModel::where(['page'=>'southafrica','section'=>1])->first();
         $section2 = OutreachCommonSectionModel::where(['page'=>'southafrica','section'=>2])->first();
@@ -481,6 +516,7 @@ class PagesController extends Controller
     }
 
     public function zimbabwe(){
+        $keywords = "Uganda,Zimbabwe,Ghana,DRC,South Africa,Cote d’Ivoire,Chad,Cameroon,Brazil";
         $banner = PageBanner::where('type', 39)->first();
         $section1 = OutreachCommonSectionModel::where(['page'=>'zimbabwe','section'=>1])->first();
         $section2 = OutreachCommonSectionModel::where(['page'=>'zimbabwe','section'=>2])->first();
@@ -488,6 +524,7 @@ class PagesController extends Controller
     }
 
     public function cameroon(){
+        $keywords = "Uganda,Zimbabwe,Ghana,DRC,South Africa,Cote d’Ivoire,Chad,Cameroon,Brazil";
         $banner = PageBanner::where('type', 40)->first();
         $section1 = OutreachCommonSectionModel::where(['page'=>'cameroon','section'=>1])->first();
         $section2 = OutreachCommonSectionModel::where(['page'=>'cameroon','section'=>2])->first();
@@ -495,6 +532,7 @@ class PagesController extends Controller
     }
 
     public function drc(){
+        $keywords = "Uganda,Zimbabwe,Ghana,DRC,South Africa,Cote d’Ivoire,Chad,Cameroon,Brazil";
         $banner = PageBanner::where('type', 41)->first();
         $section1 = OutreachCommonSectionModel::where(['page'=>'drc','section'=>1])->first();
         $section2 = OutreachCommonSectionModel::where(['page'=>'drc','section'=>2])->first();
@@ -502,6 +540,7 @@ class PagesController extends Controller
     }
 
     public function cote_divoire(){
+        $keywords = "Uganda,Zimbabwe,Ghana,DRC,South Africa,Cote d’Ivoire,Chad,Cameroon,Brazil";
         $banner = PageBanner::where('type', 42)->first();
         $section1 = OutreachCommonSectionModel::where(['page'=>'cotedivoire','section'=>1])->first();
         $section2 = OutreachCommonSectionModel::where(['page'=>'cotedivoire','section'=>2])->first();
@@ -509,6 +548,7 @@ class PagesController extends Controller
     }
 
     public function usa(){
+        $keywords = "Uganda,Zimbabwe,Ghana,DRC,South Africa,Cote d’Ivoire,Chad,Cameroon,Brazil";
         $banner = PageBanner::where('type', 43)->first();
         $section1 = OutreachCommonSectionModel::where(['page'=>'usa','section'=>1])->first();
         $section2 = OutreachCommonSectionModel::where(['page'=>'usa','section'=>2])->first();
@@ -516,6 +556,7 @@ class PagesController extends Controller
     }
 
     public function india(){
+        $keywords = "Uganda,Zimbabwe,Ghana,DRC,South Africa,Cote d’Ivoire,Chad,Cameroon,Brazil";
         $banner = PageBanner::where('type', 51)->first();
         $section1 = OutreachCommonSectionModel::where(['page'=>'india','section'=>1])->first();
         $section2 = OutreachCommonSectionModel::where(['page'=>'india','section'=>2])->first();
@@ -523,6 +564,7 @@ class PagesController extends Controller
     }
 
     public function south_america(){
+        $keywords = "Uganda,Zimbabwe,Ghana,DRC,South Africa,Cote d’Ivoire,Chad,Cameroon,Brazil";
         $banner = PageBanner::where('type', 52)->first();
         $section1 = OutreachCommonSectionModel::where(['page'=>'south_america','section'=>1])->first();
         $section2 = OutreachCommonSectionModel::where(['page'=>'south_america','section'=>2])->first();
@@ -530,6 +572,7 @@ class PagesController extends Controller
     }
 
     public function uganda(){
+        $keywords = "Uganda,Zimbabwe,Ghana,DRC,South Africa,Cote d’Ivoire,Chad,Cameroon,Brazil";
         $banner = PageBanner::where('type', 53)->first();
         $section1 = OutreachCommonSectionModel::where(['page'=>'uganda','section'=>1])->first();
         $section2 = OutreachCommonSectionModel::where(['page'=>'uganda','section'=>2])->first();
@@ -537,6 +580,7 @@ class PagesController extends Controller
     }
 
     public function opportunities(){
+        $keywords = "International mining,Business opportunities,Trade opportunities,Job openings";
         $banner = PageBanner::where('type',44)->first();
         $section1 = OpportunitiesModel::where(['section'=>1,'page'=>'oppor'])->first();
         $section2 = OpportunitiesModel::where(['section'=>2,'page'=>'oppor'])->first();
@@ -544,6 +588,7 @@ class PagesController extends Controller
     }
 
     public function opportunities_agriculture(){
+        $keywords = "International mining,Business opportunities,Trade opportunities,Job openings";
         $banner = PageBanner::where('type',45)->first();
         $section1 = OpportunitiesModel::where(['section'=>1,'page'=>'agri'])->first();
         $section2 = OpportunitiesModel::where(['section'=>2,'page'=>'agri'])->first();
@@ -551,6 +596,7 @@ class PagesController extends Controller
     }
 
     public function opportunities_construction(){
+        $keywords = "International mining,Business opportunities,Trade opportunities,Job openings";
         $banner = PageBanner::where('type',46)->first();
         $section1 = OpportunitiesModel::where(['section'=>1,'page'=>'cons'])->first();
         $section2 = OpportunitiesModel::where(['section'=>2,'page'=>'cons'])->first();
@@ -558,6 +604,7 @@ class PagesController extends Controller
     }
 
     public function mining(){
+        $keywords = "International mining,Business opportunities,Trade opportunities,Job openings";
         $banner = PageBanner::where('type',47)->first();
         $section1 = OpportunitiesModel::where(['section'=>1,'page'=>'mining'])->first();
         $section2 = OpportunitiesModel::where(['section'=>2,'page'=>'mining'])->first();
@@ -565,6 +612,7 @@ class PagesController extends Controller
     }
 
     public function rfx(){
+        $keywords = "International mining,Business opportunities,Trade opportunities,Job openings";
         $banner = PageBanner::where('type',48)->first();
         $section1 = OpportunitiesModel::where(['section'=>1,'page'=>'rfx'])->first();
         $section2 = OpportunitiesModel::where(['section'=>2,'page'=>'rfx'])->first();
@@ -573,6 +621,7 @@ class PagesController extends Controller
     }
 
     public function job_openings(){
+        $keywords = "International mining,Business opportunities,Trade opportunities,Job openings";
         $banner = PageBanner::where('type',50)->first();
         $section1 = CareersModel::where(['page'=>'job','section'=>1])->first();
         $section2 = Job::all();
@@ -580,12 +629,14 @@ class PagesController extends Controller
     }
 
     public function job_detail($id){
+        $keywords = "International mining,Business opportunities,Trade opportunities,Job openings";
         $banner = PageBanner::where('type',50)->first();
         $selectedJob = Job::findOrFail($id);
         return view('web.pages.job_detail',get_defined_vars());
     }
 
     public function careers(){
+        $keywords = "International mining,Business opportunities,Trade opportunities,Job openings";
         $banner = PageBanner::where('type',49)->first();
         $section1 = CareersModel::where(['page'=>'careers','section'=>1])->first();
         $section2 = CareersCommonModel1::get();
@@ -593,6 +644,7 @@ class PagesController extends Controller
     }
 
     public function join(){
+        $keywords = "Small businesses,Small business financing,Investors";
         if(Auth::user()){
             if(auth()->user()->member==1){
                 return redirect()->back()->with('error','Oops! You cannot access this page because you are already a member.');
@@ -608,6 +660,7 @@ class PagesController extends Controller
     }
 
     public function membership(){
+        $keywords = "Small businesses,Small business financing,Investors";
         $banner = PageBanner::where('type',5)->first();
         $section1 = MembershipCommonModel::where(['page'=>'membership','section'=>1])->first();
         $section2 = MembershipSection2::get();
@@ -616,6 +669,7 @@ class PagesController extends Controller
     }
 
     public function programs(){
+        $keywords = "International advocacy,Trade education,Business conferences";
         $banner = PageBanner::where('type',8)->first();
         $section1 = ProgramSection1::first();
         $section2 = ProgramSection2::get();
@@ -623,6 +677,7 @@ class PagesController extends Controller
     }
 
     public function team(){
+        $keywords = "Multinational networking,International business strategy";
         $banner = PageBanner::where('type',3)->first();
         $founder = OurTeam::where('type', 1)->get();
         $boardd = OurTeam::where('type', 2)->get();
@@ -635,6 +690,7 @@ class PagesController extends Controller
     }
 
     public function whoweare(){
+        $keywords = "Who We Are";
         $banner = PageBanner::where('type',2)->first();
         $section4 = AboutPage::where('section',4)->first();
         $section5 = AboutPage::where('section',5)->first();
@@ -643,6 +699,7 @@ class PagesController extends Controller
     }
 
     public function privacypolicy(){
+        $keywords = "Castnet privacy & policy";
         $banner = PageBanner::where('type',56)->first();
         $section1 = LegalDocument::where(['page'=>'privacy policy','section'=>'section1'])->first();
         $section2 = LegalDocument::where(['page'=>'privacy policy','section'=>'section2'])->first();
@@ -650,6 +707,7 @@ class PagesController extends Controller
     }
 
     public function termsuse(){
+        $keywords = "Castnet term of use";
         $banner = PageBanner::where('type',57)->first();
         $section1 = LegalDocument::where(['page'=>'term of use','section'=>'section1'])->first();
         $section2 = LegalDocument::where(['page'=>'term of use','section'=>'section2'])->first();
@@ -657,11 +715,13 @@ class PagesController extends Controller
     }
 
     public function login(){
-        return view('web.pages.login');
+        $keywords = "Login to Castnet";
+        return view('web.pages.login',get_defined_vars());
     }
 
     public function register(){
-        return view('web.pages.register');
+        $keywords = "Register to Castnet";
+        return view('web.pages.register',get_defined_vars());
     }
 
     public function listProject(){
@@ -680,6 +740,7 @@ class PagesController extends Controller
     }
 
     public function member_directory(){
+        $keywords = "Castnet,Member directory";
         $banner = PageBanner::where('type', 55)->first();
         $members = MemberDirectory::get();
         return view('web.pages.member_directory',get_defined_vars());

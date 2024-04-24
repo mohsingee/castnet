@@ -5,10 +5,12 @@ namespace App\Http\Controllers\Web\Payment;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Auth;
 use App\Models\Event_Request_Type;
+use App\Mail\RegistrationPayment;
 use App\Models\PaymentModel;
 use Illuminate\Http\Request;
 use App\Models\SponsorUser;
 use App\Models\User;
+use Mail;
 use Stripe;
 class SponsorPaymentController extends Controller
 {
@@ -95,7 +97,14 @@ class SponsorPaymentController extends Controller
                 'amount'=>$amount->fee,
                 'type'=>4,
             ]);
+            $data['name'] = $request->contact_person_name;
+            $data['message'] = "Congratulations! You have successfully joined the sponsorship. Your payment has been recieved Transaction ID is #".$stripe['id'];
+            $email = $request->email;
+            Mail::to($email)->send(new RegistrationPayment($data));
             session()->forget('sponsorData');
+            if(isset(Auth::user()->id)){
+                return redirect()->route('web.user-dashboard')->with('success','Congratulations! You have successfully joined the sponsorship. Transaction ID is #'.$stripe['id']);
+            }
             return redirect()->back()->with('success','Congratulations! You have successfully joined the sponsorship. Transaction ID is #'.$stripe['id']);
         } else {
             return redirect()->back()->with('error', 'Payment failed.');

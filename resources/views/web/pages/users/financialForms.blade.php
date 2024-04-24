@@ -1,4 +1,5 @@
 @extends('web.layouts.default')
+@section('keywords'){{$keywords??'Castnet'}}@endsection
 @section('content')
 <link rel="stylesheet" href="{{asset('assets/web/css/user_dashboard.css')}}">
     <!-- Breadcrumb Start -->

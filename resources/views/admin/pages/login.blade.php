@@ -8,7 +8,8 @@
 	<link rel="stylesheet" href="{{ asset('/assets/admin/plugins/fontawesome-free/css/all.min.css') }}">
 	<link rel="stylesheet" href="{{ asset('/assets/admin/plugins/icheck-bootstrap/icheck-bootstrap.min.css') }}">
 	<link rel="stylesheet" href="{{ asset('/assets/admin/dist/css/adminlte.min.css?v=3.2.0') }}">
-    <style>
+    <link rel="shortcut icon" href="{{ asset('assets/web/images/favicon.png') }}">
+	<style>
         .message {
             align-items: center !important;
             justify-content: center !important;

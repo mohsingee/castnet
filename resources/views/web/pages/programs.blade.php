@@ -1,7 +1,6 @@
 @extends('web.layouts.default')
+@section('keywords'){{$keywords??'Castnet'}}@endsection
 @section('content')
-
-
 <!-- Breadcrumb Start -->
 <section class="section_breadcrumb membership_bg" style="
 background: linear-gradient(90deg, rgba(7, 27, 52, 0.80) 0%, rgba(7, 27, 52, 0.61) 51.46%, rgba(7, 27, 52, 0.42) 99.24%, rgba(7, 27, 52, 0.28) 99.7%, rgba(7, 27, 52, 0.00) 100%), url({{ asset('assets/web/images/' . $banner->image) }}) center no-repeat;

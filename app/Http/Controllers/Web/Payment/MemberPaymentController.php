@@ -5,10 +5,12 @@ namespace App\Http\Controllers\Web\Payment;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Auth;
 use App\Models\CompanyInformation;
+use App\Mail\RegistrationPayment;
 use App\Models\PaymentModel;
 use Illuminate\Http\Request;
 use App\Models\User;
 use Stripe;
+use Mail;
 class MemberPaymentController extends Controller
 {
     public function payment(Request $request){
@@ -101,7 +103,14 @@ class MemberPaymentController extends Controller
                 'amount'=>$amount,
                 'type'=>1,
             ]);
+            $data['name'] = $request->first_name;
+            $data['message'] = "Congratulations! You have successfully joined the membership program. Your payment has been received. Transaction ID is #" . $stripe['id'];
+            $email = $request->email;
+            Mail::to($email)->send(new RegistrationPayment($data));
             session()->forget('userMemberData');
+            if(isset(Auth::user()->id)){
+                return redirect()->route('web.user-dashboard')->with('success','Congratulations! You have successfully joined the membership program. Transaction ID is #'.$stripe['id']);
+            }
             return redirect()->back()->with('success','Congratulations! You have successfully joined the membership program. Transaction ID is #'.$stripe['id']);
         } else{
             return redirect()->back()->with('error','Oops! Something went wrong please try again.');

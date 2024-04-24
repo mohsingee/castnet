@@ -1,10 +1,5 @@
 <!DOCTYPE html>
-<!--
-This is a starter template page. Use this page to start your new project from
-scratch. This page gets rid of all links and provides the needed markup only.
--->
 <html lang="en">
-
 <head>
     @include('web.includes.head')
     <style>
@@ -29,7 +24,11 @@ scratch. This page gets rid of all links and provides the needed markup only.
         width: 100%;
         z-index: 99;
         display: flex;
-        top: 50px;
+        top: 400px;
+    }
+    .alert{
+        height: 80px;
+        line-height: 60px;
     }
     </style>
 </head>
@@ -38,9 +37,8 @@ scratch. This page gets rid of all links and provides the needed markup only.
     @include('web.includes.header')
     <div id="overlay" style="display: none">
         <img src="{{asset('assets/loader1.gif')}}" alt="Loading" /><br/>
-     </div>
-     
-     <div class="message">
+    </div>
+    <div class="message">
         @if (session()->has('success'))
             <div class="alert alert-success alert-dismissible fade show" role="alert">
                 {{ strtoupper(session()->get('success')) }}

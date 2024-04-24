@@ -1,4 +1,5 @@
 @extends('web.layouts.default')
+@section('keywords'){{$keywords??'Castnet'}}@endsection
 @section('content')
 <section class="section_breadcrumb membership_bg" style="
 background: linear-gradient(90deg, rgba(7, 27, 52, 0.80) 0%, rgba(7, 27, 52, 0.61) 51.46%, rgba(7, 27, 52, 0.42) 99.24%, rgba(7, 27, 52, 0.28) 99.7%, rgba(7, 27, 52, 0.00) 100%), url({{ asset('assets/web/images/' . $banner->image) }}) center no-repeat;
@@ -26,7 +27,7 @@ background-size: cover;">
         <div class="row">
             <div class="col-md-9 mx-auto text-center" data-aos="fade-right" data-aos-duration="1000">
                 <h2 class="section_title">{{ $section1->title }}</h2>
-                <p class="benefit_text">{{ $section2->description }}</p>
+                <p class="benefit_text">{{ $section1->description }}</p>
             </div>
         </div>
         <div class="row gy-4">

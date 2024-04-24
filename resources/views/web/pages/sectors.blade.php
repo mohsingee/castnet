@@ -1,4 +1,5 @@
 @extends('web.layouts.default')
+@section('keywords'){{$keywords??'Castnet'}}@endsection
 @section('content')
 <!-- Breadcrumb Start -->
 <section class="section_breadcrumb sectors_bg" style="
